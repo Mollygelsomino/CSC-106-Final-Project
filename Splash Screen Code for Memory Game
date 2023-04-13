@@ -1,0 +1,62 @@
+var currentScene = 0 ;
+var startTime ;
+
+var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+};
+
+Button.prototype.draw = function() {
+    fill(0, 234, 255);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+
+var startBtn = new Button({
+    x:150, 
+    y: 287, 
+    width:91, 
+    label:"START!",
+    onClick: function(){
+        currentScene=1;
+        background(100, 76, 102); // timer starts when the start button is clicked
+    }
+});
+
+var splashScreen = function(){ // start screen
+    currentScene = 0;
+    background(224, 153, 235);
+    fill(0, 0, 0);
+    textSize(20);
+    text("Molly & Anjola's Splash Screen!", 61, 152);
+    text("Click the button below to Start!", 61, 265);
+    startBtn.draw(); // draws the start button
+};
+
+mouseClicked = function() {
+    if (currentScene===0)
+    { startBtn.handleMouseClick();}
+};
+ 
+
+splashScreen();
