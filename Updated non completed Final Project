@@ -1,0 +1,640 @@
+//Question.prototype.options = function(){};
+//Molly's bitmoji
+var drawBitmoji = function (X,Y,BitmojiHeight) {
+
+noStroke();
+fill (255, 224, 189);
+
+//Head
+ellipse (X+75*BitmojiHeight/100,Y+50*BitmojiHeight/100,X-17,Y) ;
+
+fill(71, 46, 14);
+
+//Left Hair
+quad(X+28*BitmojiHeight/100, Y+81*BitmojiHeight/100, X+61*BitmojiHeight/100, Y-18*BitmojiHeight/100, X+12*BitmojiHeight/100, Y-3*BitmojiHeight/100, X+11*BitmojiHeight/100, Y+170*BitmojiHeight/100); 
+
+//Right Hair
+quad(X+124*BitmojiHeight/100,Y-4*BitmojiHeight/100,X+124*BitmojiHeight/100,Y+174*BitmojiHeight/100,X+109*BitmojiHeight/100,Y+42*BitmojiHeight/100,X+57*BitmojiHeight/100,Y-9*BitmojiHeight/100); 
+
+//Top of Hair
+ellipse(X+68*BitmojiHeight/100,Y-4*BitmojiHeight/100,X+10*BitmojiHeight/100,Y-68*BitmojiHeight/100); 
+
+//Left Eye
+ellipse(X+59*BitmojiHeight/100,Y+36*BitmojiHeight/100,X-93*BitmojiHeight/100,Y-95*BitmojiHeight/100); 
+
+//Right Eye
+ellipse(X+82*BitmojiHeight/100,Y+36*BitmojiHeight/100,X-93*BitmojiHeight/100,Y-95*BitmojiHeight/100); 
+
+stroke(0,0,0);
+fill (255, 224, 189);
+
+//Nose
+bezier(X+72*BitmojiHeight/100,Y+45*BitmojiHeight/100,X+90*BitmojiHeight/100,Y+63*BitmojiHeight/100,X+69*BitmojiHeight/100,Y+55*BitmojiHeight/100,X+73*BitmojiHeight/100,Y+60*BitmojiHeight/100); 
+
+//Fill for Teeth
+fill(255, 255, 255); 
+
+//Mouth
+arc(X+73*BitmojiHeight/100,Y+71*BitmojiHeight/100,X-70*BitmojiHeight/100,Y-86*BitmojiHeight/100,X-99*BitmojiHeight/100,Y+80*BitmojiHeight/100);
+
+//Top of Mouth
+line(X+57*BitmojiHeight/100,Y+71*BitmojiHeight/100,X+87*BitmojiHeight/100,Y+71*BitmojiHeight/100);
+
+//Tongue
+fill(242, 184, 232);
+bezier(X+66*BitmojiHeight/100,Y+75*BitmojiHeight/100,X+93*BitmojiHeight/100,Y+118*BitmojiHeight/100,X+80*BitmojiHeight/100,Y+57*BitmojiHeight/100,X+84*BitmojiHeight/100,Y+75*BitmojiHeight/100);
+line(X+81*BitmojiHeight/100,Y+90*BitmojiHeight/100,X+75*BitmojiHeight/100,Y+77*BitmojiHeight/100);
+};
+var drawBitmojiBody = function (X,Y,BitmojiHeight) {
+
+noStroke();
+fill(87, 84, 87);
+//Left Shirt
+triangle(X+44*BitmojiHeight/100, Y+85*BitmojiHeight/100, X+85*BitmojiHeight/100, Y+107*BitmojiHeight/100, X+30*BitmojiHeight/100, Y+139*BitmojiHeight/100);
+
+//Right Shirt
+triangle(X+105*BitmojiHeight/100, Y+83*BitmojiHeight/100, X+115*BitmojiHeight/100, Y+139*BitmojiHeight/100, X+30*BitmojiHeight/100, Y+138*BitmojiHeight/100);
+
+//Text for Shirt
+fill(255, 255, 255);
+text("MG", X+56*BitmojiHeight/100, Y+105*BitmojiHeight/100);
+};
+var drawMolly = function(X, Y, BitmojiHeight){
+    drawBitmoji(X, Y, BitmojiHeight);
+    drawBitmojiBody(X, Y, BitmojiHeight);
+};
+
+//Anjola's bitmoji
+var drawEyes = function(x, y, h){
+            stroke(0, 0, 0);
+            fill(255, 255, 255);
+            ellipse(x+(174*h/100), y+(207*h/100), (22*h/100), (10*h/100)); // left eye
+            ellipse(x+(222*h/100), y+(207*h/100), (22*h/100), (10*h/100)); // right               eye
+            fill(0, 0, 0);
+            ellipse(x+(174*h/100), y+(207*h/100), (10*h/100), (9*h/100)); // left                 pupil
+            ellipse(x+(222*h/100), y+(207*h/100), (10*h/100), (10*h/100)); // right               pupil
+            line(x+(162*h/100), y+(197*h/100), x+(181*h/100), y+(197*h/100));// left              eyebrow
+            line(x+(211*h/100), y+(197*h/100), x+(232*h/100), y+(197*h/100)); // right             eyebrow
+        };
+        
+var drawMouth = function(x, y, h){
+        stroke(105, 55, 26);
+        fill(128, 70, 35);
+        arc(x+(193*h/100), y+(250*h/100), (23*h/100), (12*h/100), 159, 544);// left           top lip
+        arc(x+(204*h/100), y+(251*h/100), (23*h/100), (12*h/100), 227, 379); // right         top lip
+        arc(x+(199*h/100), y+(251*h/100), (33*h/100), (15*h/100), 0, 180);// bottom           lip
+};
+
+var drawNose =  function(x, y, h){
+        noStroke();
+        fill(128, 70, 35);
+        ellipse(x+(198*h/100), y+(229*h/100), (18*h/100), (9*h/100));// nose
+        rect(x+(193*h/100), y+(210*h/100), (10*h/100), (18*h/100), (7*h/100)); // nose         bridge
+};
+
+var drawBitmojiHead = function(x, y, h){
+        fill(178, 102, 52);
+        rect(x+(183*h/100), y+(266*h/100), (26*h/100), (27*h/100), (7*h/100));// neck
+        fill(178, 102, 52);
+        ellipse(x+(198*h/100), y+(214*h/100), (107*h/100), (124*h/100)); // face 
+        fill(255, 255, 255);
+        drawEyes(x, y, h);
+        drawMouth(x, y, h);
+        drawNose(x, y, h);
+};
+
+var drawHair = function(x, y, h){
+        stroke(0, 0, 0);
+        strokeWeight((20*h/100));
+        line(x+(231*h/100), y+(166*h/100), x+(192*h/100), y+(163*h/100));// top hair
+        line(x+(267*h/100), y+(251*h/100), x+(239*h/100), y+(170*h/100));// right hair
+        line(x+(145*h/100), y+(184*h/100), x+(154*h/100), y+(269*h/100)); // left hair
+        
+};
+
+var drawHat = function(x, y, h){
+        strokeWeight(1);
+        fill(225, 112, 155);
+        arc(x+(195*h/100), y+(184*h/100), (134*h/100), (68*h/100), 142, 319); // hat
+};
+
+var drawShirt = function(x, y, h){
+        fill(235, 50, 90);
+        rect(x+(166*h/100), y+(286*h/100), (59*h/100), (30*h/100), (7*h/100));// shirt
+        fill(0, 0, 0);
+        textFont("Georgia", (12*h/100));
+        text("A.F", x+(202*h/100), y+(302*h/100)); // initials
+};
+
+var drawAnjolaBitmojiBody = function(x, y, h){
+    drawHair(x, y, h);
+    drawHat(x, y, h);
+    drawShirt(x, y, h);
+    
+};
+
+var drawAnjolaBitmoji = function(x, y, h){
+        
+    drawBitmojiHead(x, y, h);
+    drawAnjolaBitmojiBody(x, y, h);
+        
+        };
+        
+var currentScene = 0 ;
+var currentQuestion = 0;
+var playerScore = 0;
+var questions = [
+    {
+    Q:"What is the name of the current US president?",
+    A: "A. John F. Kennedy",
+    B: "B. Joe Biren",
+    C: "C. Osama Bin-Laden",
+    D: "D. Joe Biden",
+    Correct: "D"
+    }, 
+    {   
+        Q: "What is the largest state in the US?",
+        A: "A. Texas",
+        B: "B. California",
+        C: "C.Alaska",
+        D: "D.New Mexico",
+        Correct: "C"
+    }, 
+    {
+     Q: "How many Federal Holidays are there in the US in a year?",
+        A: "A. 9",
+        B: "B. 10",
+        C: "C. 8",
+        D: "D. 5",
+        Correct: "B"
+    },
+    {
+     Q: "Which of the options below is not a Chess playing piece?",
+        A: "A. Knight",
+        B: "B. Pawn",
+        C: "C. Rook",
+        D: "D. Priest",
+        Correct: "D"
+    },
+    {
+     Q: "What is the definition of Renaissance?",
+        A: "A. Return",
+        B: "B. Rebirth",
+        C: "C. Reaclimate",
+        D: "D. Respawn",
+        Correct: "B"
+    },
+    {
+     Q: "Which state is home to Atlantic City?",
+        A: "A. Delaware",
+        B: "B. Florida",
+        C: "C. New Jersey",
+        D: "D. Georgia",
+        Correct: "C"
+    },
+    {
+     Q: "What is the only letter to never appear on the periodic Table of Elements?",
+        A: "A. Q",
+        B: "B. K",
+        C: "C. U",
+        D: "D. J",
+        Correct: "D"
+    },
+        {
+     Q: "What makes a flute different from other woodwind instruments?",
+        A: "A. It is made of metal",
+        B: "B. It has no reed",
+        C: "C. It has no keys",
+        D: "D. It is played with the mouth",
+        Correct: "B"
+    },
+        {
+     Q: "What is the official language in Argentina?",
+        A: "A. Portuguese",
+        B: "B. Spanish",
+        C: "C. Brazilian",
+        D: "D. Maori",
+        Correct: "B"
+    },
+        {
+     Q: "A 'chukka' is a period of playing time in which sport?",
+        A: "A. Badminton",
+        B: "B. Volleyball",
+        C: "C. Polo",
+        D: "D. Hockey",
+        Correct: "C"
+    },
+        {
+     Q: "How many bones are in the human body?",
+        A: "A. 215",
+        B: "B. 236",
+        C: "C. 206",
+        D: "D. 212",
+        Correct: "C"
+    },
+        {
+     Q: "In what year did the Titanic sink?",
+        A: "A. 1906",
+        B: "B. 1912",
+        C: "C. 1916",
+        D: "D. 1920",
+        Correct: "B"
+    },
+        {
+     Q: "What is the largest planet in our solar system?",
+        A: "A. Jupiter",
+        B: "B. Saturn",
+        C: "C. Mars",
+        D: "D. Neptune",
+        Correct: "A"
+    },
+        {
+     Q: "Who painted the Mona Lisa?",
+        A: "A. Leonardo da Vinci",
+        B: "B. Michelangelo",
+        C: "C. Vincent van Gogh",
+        D: "D. Pablo Picasso",
+        Correct: "A"
+    },
+        {
+     Q: "Which of these countries is not in Europe?",
+        A: "A. Russia",
+        B: "B. Spain",
+        C: "C. France",
+        D: "D. Argentina",
+        Correct: "D"
+    },
+        {
+     Q: "What is the largest ocean in the world?",
+        A: "A. The Atlantic Ocean",
+        B: "B. The Indian Ocean",
+        C: "C. The Pacific Ocean",
+        D: "D. The Arctic Ocean",
+        Correct: "C"
+    },
+        {
+     Q: "What is the largest organ in the human body?",
+        A: "A. The Brain",
+        B: "B. The Heart",
+        C: "C. The Skin",
+        D: "D. The Liver",
+        Correct: "C"
+    },
+        {
+     Q: "Who wrote the famous novel 'To Kill a Mockingbird'?",
+        A: "A. Mark Twain",
+        B: "B. Harper Lee",
+        C: "C. Ernest Hemingway",
+        D: "D. F. Scott Fitzgerald",
+        Correct: "D"
+    },
+        {
+     Q: "What Element has the chemical symbol Au?",
+        A: "A. Gold",
+        B: "B. Silver",
+        C: "C. Magnesium",
+        D: "D. Salt",
+        Correct: "A"
+    },
+        {
+     Q: "Who painted 'Starry Night'?",
+        A: "A. Pablo Picasso",
+        B: "B. Michelangelo",
+        C: "C. Vincent van Gogh",
+        D: "D. Salvador Dali",
+        Correct: "C"
+    },
+    ];
+//var current = questions[currentQuestion];
+    
+var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {
+        if (questions[currentQuestion].Correct === this.option){
+            playerScore+= 5;
+            currentQuestion++;
+            text("CORRECT!", 50, 50);
+            println(this.option);
+            println("correct");
+        } /*if (questions[currentQuestion].Correct !== this.option && playerScore !== 0){
+            playerScore-= 5;
+            currentQuestion++;
+            println(this.option);
+            println("wrong");
+        }*/else if (questions[currentQuestion].Correct !== this.option && playerScore === 0){
+            //currentQuestion === 10;
+            //background(188, 245, 245);
+            //text("INCORRECT!", 50, 50);
+            // add a  game over screen
+            println(this.option);
+            println("haha");
+        }
+    };
+    this.option = config.option || false;
+};
+
+Button.prototype.draw = function() {
+    fill(75, 138, 70);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(255, 255, 255);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+var startBtn = new Button({
+    x:150, 
+    y: 305, 
+    width:91, 
+    label:"START!",
+    onClick: function(){
+        currentScene=1;
+        //startTime = millis(); // timer starts when the start button is clicked
+    }
+});
+
+var splashScreen = function(){ // start screen
+    currentScene = 0;
+    background(25, 21, 105);
+    drawMolly(70, 70, 70);
+    drawAnjolaBitmoji(103, -49, 71);
+    fill(255, 255, 255);
+    textSize(19);
+    text("Molly & Anjola's Who wants to be a Millionare", 6, 20);
+    text("When you're ready click the button below!", 18, 247);
+    text("It's Trivia time!", 125, 207);
+    startBtn.draw(); // draws the start button
+};
+var OptionA = new Button({x: 32, y: 222, width: 162, height: 34, option:"A"});
+var OptionB = new Button({x: 234, y: 222, width: 162, height: 34, option:"B"});
+var OptionC = new Button({x: 32, y: 291, width: 162, height: 34, option:"C"});
+var OptionD = new Button({x:234, y: 291, width: 162, height: 34, option:"D"});
+
+/*
+var OptionA = function(config){
+    this.x = 32;
+    this.y = 222;
+    this.width = 162;
+    this.height = 34;
+    this.text = config.text || "No Option Entered!";
+    //this.correct = false;
+};
+
+OptionA.prototype.draw = function() {
+    fill(255, 255, 255);
+    rect(this.x, this.y, this.width, this.height, 7);
+    fill(0, 0, 0);
+    text("A. " + this.text, 100, 238);
+};
+
+var OptionB = function(config){
+    this.x = 234;
+    this.y = 222;
+    this.width = 160;
+    this.height = 34;
+    this.text = config.text || "No Option Entered!" ;
+    //this.correct = false;
+
+};
+
+OptionB.prototype.draw = function() {
+    fill(255, 255, 255);
+    rect(this.x, this.y, this.width, this.height, 7);
+    fill(0, 0, 0);
+    text("B. " + this.text, 309, 238);
+};
+
+var OptionC = function(config){
+    this.x = 32;
+    this.y = 291;
+    this.width = 160;
+    this.height = 34;
+    this.text = config.text || "No Option Entered!" ;
+    //this.correct = false;
+
+};
+
+OptionC.prototype.draw = function() {
+    fill(255, 255, 255);
+    rect(this.x, this.y, this.width, this.height, 7);
+    fill(0, 0, 0);
+    text("C. " + this.text, 100, 308);
+};
+
+var OptionD = function(config){
+    this.x = 234;
+    this.y = 291;
+    this.width = 160;
+    this.height = 34;
+    this.text = config.text || "No Option Entered!" ;
+    //this.correct = false;
+
+};
+
+OptionD.prototype.draw = function() {
+    fill(255, 255, 255);
+    rect(this.x, this.y, this.width, this.height, 7);
+    fill(0, 0, 0);
+    text("D. " + this.text, 309, 308);
+};
+*/
+
+var displayQuestion = function(){
+    fill(255, 255, 255);
+    rect(74, 121, 272, 71, 7);
+    fill(0, 0, 0);
+    textSize(12);
+    textAlign(CENTER, CENTER);
+    text(questions[currentQuestion].Q, 208, 156);
+    OptionA.label = questions[currentQuestion].A;
+    OptionB.label = questions[currentQuestion].B;
+    OptionC.label = questions[currentQuestion].C;
+    OptionD.label = questions[currentQuestion].D;
+    OptionA.draw();
+    OptionB.draw();
+    OptionC.draw();
+    OptionD.draw();
+};
+
+var checkAnswer = function(){};
+
+/*
+for (var i =0; i<questions.length; i++){ // for loop to display question.
+    fill(255, 255, 255);
+    rect(74, 121, 272, 71, 7);
+    fill(0, 0, 0);
+    textAlign(CENTER, CENTER);
+    text(current.Q, 208, 156);
+    current.A = new OptionA({text: current.A});
+    current.A.draw();
+    current.B = new OptionB({text: current.B});
+    current.B.draw();
+    current.C = new OptionC({text: current.C});
+    current.C.draw();
+    current.D = new OptionD({text: current.D});
+    current.D.draw();
+}
+*/
+
+
+
+/*
+var question1 = new Question({question: "What is the name of the current US president?"});
+
+question1.draw();
+
+var option1 = new OptionA();
+option1.draw();
+
+var option2 = new OptionB();
+option2.draw();
+
+var option3 = new OptionC();
+option3.draw();
+
+var option4 = new OptionD();
+option4.draw();
+*/
+
+/* Make Questions an array that has all the questions
+Make an "Options" array that has the option as objects.i.e.
+*/
+
+/*
+var questions = ["What is the name of the current US president?", "What is the largest state in the US?"];
+var options =[{
+                A: "John F. Kennedy",
+                B: "Joe Biren",
+                C: "Osama Bin-Laden",
+                D: "Joe Biden"
+            },
+            {   
+                A: "Texas",
+                B: "California",
+                C: "Alaska",
+                D: "New Mexico"
+            }];
+
+var help = [];
+
+for (var i = 0; i<questions.length; i++){
+    //background(198, 245, 247);
+    fill(0, 0, 0);
+    text(questions[i], i*100+20,  i*100+20);
+    text("A: " + options[i].A, i*100+20,  i*100+55);
+    text("B: " + options[i].B, i*100+158,  i*100+55);
+    text("C: " + options[i].C, i*100+20,  i*100+89);
+    text("D: " + options[i].C, i*100+158,  i*100+89);
+    //var correctAnswer =
+
+
+
+}
+*/
+
+draw= function() {
+    if (currentScene === 0){
+       splashScreen();
+    }else{
+        background(188, 245, 245); // move to draw function
+        displayQuestion();
+        text("Score: " + playerScore, 307, 33);
+        mouseClicked = function(){
+            OptionA.handleMouseClick();
+            OptionB.handleMouseClick();
+            OptionC.handleMouseClick();
+            OptionD.handleMouseClick();
+        };
+    }
+};
+
+    /*mouseClicked = function(){
+    if (mouseX>28 && mouseX<198 && mouseY>218 && mouseY<260){ // checks if user clicked on A
+        if (current.Correct === "A"){ // increases score if A is correct
+            fill(0, 0, 0);
+            text("CORRECT!", 50, 50);
+            playerScore += 5;
+            currentQuestion ++;
+        }if (current.Correct !== "A" && playerScore !== 0){ // reduces score if A is wrong and user has more than 0 points
+            fill(0, 0, 0);
+            text("INCORRECT!", 50, 50);
+            playerScore -= 5;
+            currentQuestion ++;
+        }else if (current.Correct!== "A" && playerScore === 0){ // end game if A is wrong and user has zero points
+            fill(0, 0, 0);
+            text("GAME OVER!", 50, 50); // add end game screen
+    }
+}
+    if (mouseX>230 && mouseX<400 && mouseY>218 && mouseY<260){ // checks if user clicked on B
+        if (current.Correct === "B"){ // increases score if B is correct
+            fill(0, 0, 0);
+            text("CORRECT!", 50, 50);
+            playerScore += 5;
+            currentQuestion ++;
+        }if (current.Correct !== "B" && playerScore !== 0){ // reduces score if B is wrong and player has more than 0 points
+            fill(0, 0, 0);
+            text("INCORRECT!", 50, 50);
+            playerScore -= 5;
+            currentQuestion ++;
+        }else if (current.Correct !== "B" && playerScore === 0){ // end game if B is wrong and user has 0 points
+            fill(0, 0, 0);
+            text("GAME OVER!", 50, 50); // add end game screen
+        }
+    }
+    if (mouseX>28 && mouseX<198 && mouseY>287 && mouseY<330){ // checks if user clicked on C
+        if (current.Correct === "C"){ // increases score if C is correct
+            fill(0, 0, 0);
+            text("CORRECT!", 50, 50);
+            playerScore += 5;
+            currentQuestion ++;
+        }if (current.Correct !== "C" && playerScore !== 0){ // reduces score if C is wrong and user has more than 0 points
+            fill(0, 0, 0);
+            text("INCORRECT!", 50, 50);
+            playerScore -= 5;
+            currentQuestion ++;
+        }else if (current.Correct !== "C" && playerScore === 0){// end game if C is wrong and user has zero points
+            fill(0, 0, 0);
+            text("GAME OVER!", 50, 50); // add end game screen
+            
+        }
+        
+    }
+    if (mouseX>230 && mouseX<400 && mouseY>287 && mouseY<330){ // checks if user clicked on D
+        if (current.Correct === "D"){ // increases score if D is correct
+            fill(0, 0, 0);
+            text("CORRECT!", 50, 50);
+            playerScore += 5;
+            currentQuestion ++;
+        }if (current.Correct !== "D" && playerScore !== 0){ // reduces score if A is wrong and user has more than 0 points
+            fill(0, 0, 0);
+            text("INCORRECT!", 50, 50);
+            playerScore -= 5;
+            currentQuestion ++;
+        }else if (current.Correct!== "D" && playerScore === 0){ // end game if A is wrong and user has zero points
+            fill(0, 0, 0);
+            text("GAME OVER!", 50, 50); // add end game screen
+    }
+        
+    }
+    
+};*/
+
+
+    
+
