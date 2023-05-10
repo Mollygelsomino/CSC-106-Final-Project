@@ -141,7 +141,8 @@ var questions = [
     B: "B. Joe Biren",
     C: "C. Osama Bin-Laden",
     D: "D. Joe Biden",
-    Correct: "D"
+    Correct: "D",
+    Hint: "The current US president's first name is Joe."
     }, 
     {   
         Q: "What is the largest state in the US?",
@@ -149,14 +150,8 @@ var questions = [
         B: "B. California",
         C: "C. Alaska",
         D: "D. New Mexico",
-        Correct: "C"
-    },{
-     Q: "How many Federal Holidays are there in the US in a year?",
-        A: "A. 9",
-        B: "B. 10",
-        C: "C. 8",
-        D: "D. 5",
-        Correct: "B"
+        Correct: "C",
+        Hint:  "This state is often associated with\n extreme cold temperatures and is home to\n Denali, the highest peak in North America."
     },
     {
      Q: "Which of the options below is not a Chess playing piece?",
@@ -164,7 +159,8 @@ var questions = [
         B: "B. Pawn",
         C: "C. Rook",
         D: "D. Priest",
-        Correct: "D"
+        Correct: "D",
+        Hint:  "The Chess playing pieces are typically\n associated with military ranks and\n functions"
     },
     {
      Q: "What is the definition of Renaissance?",
@@ -172,7 +168,8 @@ var questions = [
         B: "B. Rebirth",
         C: "C. Reaclimate",
         D: "D. Respawn",
-        Correct: "B"
+        Correct: "B",
+        Hint: "The Renaissnance Period is known for\na renewed interest in art, literature, \nscience, and learning."
     },
     {
      Q: "Which state is home to Atlantic City?",
@@ -180,7 +177,8 @@ var questions = [
         B: "B. Florida",
         C: "C. New Jersey",
         D: "D. Georgia",
-        Correct: "C"
+        Correct: "C",
+        Hint: "This state shares a border with\nPennsylvania and is known for its proximity\nto the Atlantic Ocean, making it a popular\ndestination for tourists and gamblers alike."
     },
     {
      Q: "What is the only letter to never appear on the periodic Table of Elements?",
@@ -188,7 +186,8 @@ var questions = [
         B: "B. K",
         C: "C. U",
         D: "D. J",
-        Correct: "D"
+        Correct: "D",
+        Hint: "It is the 10th letter of the English Alphabets"
     },
         {
      Q: "What makes a flute different from other woodwind instruments?",
@@ -204,7 +203,8 @@ var questions = [
         B: "B. Spanish",
         C: "C. Brazilian",
         D: "D. Maori",
-        Correct: "B"
+        Correct: "B",
+        Hint: "It is the second most widely spoken\nlanguage in the US."
     },
         {
      Q: "A 'chukka' is a period of playing time in which sport?",
@@ -212,7 +212,8 @@ var questions = [
         B: "B. Volleyball",
         C: "C. Polo",
         D: "D. Hockey",
-        Correct: "C"
+        Correct: "C",
+        Hint: "This game is played using a mallet." 
     },
         {
      Q: "How many bones are in the human body?",
@@ -220,7 +221,8 @@ var questions = [
         B: "B. 236",
         C: "C. 206",
         D: "D. 212",
-        Correct: "C"
+        Correct: "C",
+        Hint: "It is closer to 200"
     },
         {
      Q: "In what year did the Titanic sink?",
@@ -228,7 +230,8 @@ var questions = [
         B: "B. 1912",
         C: "C. 1916",
         D: "D. 1920",
-        Correct: "B"
+        Correct: "B",
+        Hint:  "The sinking of the Titanic occurred in the \nearly 20th century, specifically during the\nfirst half of the 1910s."
     },
         {
      Q: "What is the largest planet in our solar system?",
@@ -236,7 +239,8 @@ var questions = [
         B: "B. Saturn",
         C: "C. Mars",
         D: "D. Neptune",
-        Correct: "A"
+        Correct: "A",
+        Hint: "This planet is famous for its numerous \nmoons, and its Great Red Spot."
     },
         {
      Q: "Who painted the Mona Lisa?",
@@ -244,7 +248,8 @@ var questions = [
         B: "B. Michelangelo",
         C: "C. Vincent van Gogh",
         D: "D. Pablo Picasso",
-        Correct: "A"
+        Correct: "A",
+        Hint: "The painter of the Mona Lisa is Italian and \nis widely recognized as one of the most \nfamous artists of all time"
     },
         {
      Q: "Which of these countries is not in Europe?",
@@ -252,7 +257,8 @@ var questions = [
         B: "B. Spain",
         C: "C. France",
         D: "D. Argentina",
-        Correct: "D"
+        Correct: "D",
+        Hint: "It is in South America and known for its \ndiverse culture and rich natural landscapes."
     },
         {
      Q: "What is the largest ocean in the world?",
@@ -260,7 +266,8 @@ var questions = [
         B: "B. The Indian Ocean",
         C: "C. The Pacific Ocean",
         D: "D. The Arctic Ocean",
-        Correct: "C"
+        Correct: "C",
+        Hint: "The United States and Canada share a \nborder along this ocean."
     },
         {
      Q: "What is the largest organ in the human body?",
@@ -268,7 +275,8 @@ var questions = [
         B: "B. The Heart",
         C: "C. The Skin",
         D: "D. The Liver",
-        Correct: "C"
+        Correct: "C",
+        Hint: "This organ plays a vital role in regulating \nbody temperature, sensing touch, and \nproviding a first line of defense against \npathogens."
     },
         {
      Q: "Who wrote the famous novel 'To Kill a Mockingbird'?",
@@ -276,7 +284,8 @@ var questions = [
         B: "B. Harper Lee",
         C: "C. Ernest Hemingway",
         D: "D. F. Scott Fitzgerald",
-        Correct: "B"
+        Correct: "B",
+        Hint: "The author is from a small town in Alabama, \nUS"
     },
         {
      Q: "What Element has the chemical symbol Au?",
@@ -284,7 +293,8 @@ var questions = [
         B: "B. Silver",
         C: "C. Magnesium",
         D: "D. Salt",
-        Correct: "A"
+        Correct: "A",
+        Hint: "The chemical symbol Au corresponds to a \nhighly valuable and precious metal that has \nbeen highly sought after throughout history \nfor its beauty and use in jewelry."
     },
         {
      Q: "Who painted 'Starry Night'?",
@@ -292,8 +302,18 @@ var questions = [
         B: "B. Michelangelo",
         C: "C. Vincent van Gogh",
         D: "D. Salvador Dali",
-        Correct: "C"
+        Correct: "C",
+        Hint: "It is believed that this artist cut off a portion \nof his own ear."
     },
+    {
+     Q: "How many Federal Holidays are there in the US in a year?",
+        A: "A. 9",
+        B: "B. 10",
+        C: "C. 8",
+        D: "D. 5",
+        Correct: "B"
+    }
+
     ];
 
 var Button = function(config) {
@@ -355,6 +375,7 @@ var OptionB = new Button({x: 6, y: 247, width: 386, height: 34, option: "B"});
 var OptionC = new Button({x: 6, y: 288, width: 386, height: 34, option: "C"});
 var OptionD = new Button({x:6, y: 329, width: 386, height: 34, option: "D"});
 
+
 var splashScreen = function(){
     background(188, 245, 245);
     drawMolly(70, 70, 70);
@@ -364,6 +385,30 @@ var splashScreen = function(){
     text("Molly and Anjola's Trivia Game!", 52, 20);
     text("Click the button to start!", 52, 352);
     startBtn.draw();
+};
+var HintBtn = new Button({
+    x: 307, 
+    y:70, 
+    width: 91, 
+    height: 37, 
+    label: "HINT", 
+    onClick: function(){
+        if(currentScene === 1){
+            this.label = "RETURN";
+            currentScene = 3;
+        } else if (currentScene === 3){
+            this.label = "HINT";
+            currentScene = 1;
+        }
+    
+    }});
+var helpScreen = function(){
+    background(188, 245, 245);
+    fill(255, 255, 255);
+    rect(13, 20, 382, 345, 7);
+    HintBtn.draw();
+    fill(0, 0, 0);
+    text(questions[currentQuestion].Hint, 20, 115);
 };
 
 var displayQuestion = function(){
@@ -384,7 +429,9 @@ var displayQuestion = function(){
     OptionB.draw();
     OptionC.draw();
     OptionD.draw();
+    HintBtn.draw();
 };
+
 
 mouseClicked = function(){
     OptionA.handleMouseClick();
@@ -392,6 +439,7 @@ mouseClicked = function(){
     OptionC.handleMouseClick();
     OptionD.handleMouseClick();
     startBtn.handleMouseClick();
+    HintBtn.handleMouseClick();
 };
 
 var gamePlaying = function(){
@@ -400,6 +448,7 @@ var gamePlaying = function(){
         text("Score: " + playerScore, 307, 33);
     }else if (currentQuestion === questions.length){
         background(0, 255, 64);
+        text("Score: " + playerScore + "/100", 138, 150);
         text("YOU WIN!", 140, 200);
     }
 };
@@ -407,13 +456,18 @@ var gamePlaying = function(){
 var endGame = function(){
     background(255, 0, 0);
     textSize(20);
+        text("Score: " + playerScore + "/100", 138, 150);
     text("GAME OVER!", 138, 200);
 };
+
 
 draw = function() {
     if(currentScene === 0){
         splashScreen();
-    } else 
+    } if (currentScene === 3){
+        helpScreen();
+    } 
+    else 
         //background(0, 0, 0);
         if (currentScene === 1){
             gamePlaying();
