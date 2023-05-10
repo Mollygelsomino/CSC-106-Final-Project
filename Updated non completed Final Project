@@ -1,4 +1,3 @@
-//Question.prototype.options = function(){};
 //Molly's bitmoji
 var drawBitmoji = function (X,Y,BitmojiHeight) {
 
@@ -76,7 +75,6 @@ var drawEyes = function(x, y, h){
             line(x+(162*h/100), y+(197*h/100), x+(181*h/100), y+(197*h/100));// left              eyebrow
             line(x+(211*h/100), y+(197*h/100), x+(232*h/100), y+(197*h/100)); // right             eyebrow
         };
-        
 var drawMouth = function(x, y, h){
         stroke(105, 55, 26);
         fill(128, 70, 35);
@@ -84,14 +82,12 @@ var drawMouth = function(x, y, h){
         arc(x+(204*h/100), y+(251*h/100), (23*h/100), (12*h/100), 227, 379); // right         top lip
         arc(x+(199*h/100), y+(251*h/100), (33*h/100), (15*h/100), 0, 180);// bottom           lip
 };
-
 var drawNose =  function(x, y, h){
         noStroke();
         fill(128, 70, 35);
         ellipse(x+(198*h/100), y+(229*h/100), (18*h/100), (9*h/100));// nose
         rect(x+(193*h/100), y+(210*h/100), (10*h/100), (18*h/100), (7*h/100)); // nose         bridge
 };
-
 var drawBitmojiHead = function(x, y, h){
         fill(178, 102, 52);
         rect(x+(183*h/100), y+(266*h/100), (26*h/100), (27*h/100), (7*h/100));// neck
@@ -102,7 +98,6 @@ var drawBitmojiHead = function(x, y, h){
         drawMouth(x, y, h);
         drawNose(x, y, h);
 };
-
 var drawHair = function(x, y, h){
         stroke(0, 0, 0);
         strokeWeight((20*h/100));
@@ -111,13 +106,11 @@ var drawHair = function(x, y, h){
         line(x+(145*h/100), y+(184*h/100), x+(154*h/100), y+(269*h/100)); // left hair
         
 };
-
 var drawHat = function(x, y, h){
         strokeWeight(1);
         fill(225, 112, 155);
         arc(x+(195*h/100), y+(184*h/100), (134*h/100), (68*h/100), 142, 319); // hat
 };
-
 var drawShirt = function(x, y, h){
         fill(235, 50, 90);
         rect(x+(166*h/100), y+(286*h/100), (59*h/100), (30*h/100), (7*h/100));// shirt
@@ -125,22 +118,20 @@ var drawShirt = function(x, y, h){
         textFont("Georgia", (12*h/100));
         text("A.F", x+(202*h/100), y+(302*h/100)); // initials
 };
-
 var drawAnjolaBitmojiBody = function(x, y, h){
     drawHair(x, y, h);
     drawHat(x, y, h);
     drawShirt(x, y, h);
     
 };
-
 var drawAnjolaBitmoji = function(x, y, h){
         
     drawBitmojiHead(x, y, h);
     drawAnjolaBitmojiBody(x, y, h);
         
         };
-        
-var currentScene = 0 ;
+
+var currentScene = 0;
 var currentQuestion = 0;
 var playerScore = 0;
 var questions = [
@@ -156,11 +147,10 @@ var questions = [
         Q: "What is the largest state in the US?",
         A: "A. Texas",
         B: "B. California",
-        C: "C.Alaska",
-        D: "D.New Mexico",
+        C: "C. Alaska",
+        D: "D. New Mexico",
         Correct: "C"
-    }, 
-    {
+    },{
      Q: "How many Federal Holidays are there in the US in a year?",
         A: "A. 9",
         B: "B. 10",
@@ -286,7 +276,7 @@ var questions = [
         B: "B. Harper Lee",
         C: "C. Ernest Hemingway",
         D: "D. F. Scott Fitzgerald",
-        Correct: "D"
+        Correct: "B"
     },
         {
      Q: "What Element has the chemical symbol Au?",
@@ -305,8 +295,7 @@ var questions = [
         Correct: "C"
     },
     ];
-//var current = questions[currentQuestion];
-    
+
 var Button = function(config) {
     this.x = config.x || 0;
     this.y = config.y || 0;
@@ -314,82 +303,75 @@ var Button = function(config) {
     this.height = config.height || 50;
     this.label = config.label || "Click";
     this.onClick = config.onClick || function() {
-        if (questions[currentQuestion].Correct === this.option){
-            playerScore+= 5;
-            currentQuestion++;
-            text("CORRECT!", 50, 50);
-            println(this.option);
-            println("correct");
-        } /*if (questions[currentQuestion].Correct !== this.option && playerScore !== 0){
-            playerScore-= 5;
-            currentQuestion++;
-            println(this.option);
-            println("wrong");
-        }*/else if (questions[currentQuestion].Correct !== this.option && playerScore === 0){
-            //currentQuestion === 10;
-            //background(188, 245, 245);
-            //text("INCORRECT!", 50, 50);
-            // add a  game over screen
-            println(this.option);
-            println("haha");
+        if (questions[currentQuestion].Correct === this.option) {
+            // correct answer!
+            playerScore+=5; 
+            //text("CORRECT!", 50, 50);
+            currentQuestion++; // advance to next question?
+            
+        }else if (playerScore !== 0 && questions[currentQuestion].Correct !== this.option){
+            //background(0, 0, 0);
+            text("WRONG!", 50, 50);
+            playerScore -=5;
+            //println("wrong!");
+        }
+        else if (playerScore === 0 && questions[currentQuestion].Correct !== this.option){
+           currentQuestion =2000;
         }
     };
     this.option = config.option || false;
 };
-
 Button.prototype.draw = function() {
-    fill(75, 138, 70);
+    fill(0, 234, 255);
     rect(this.x, this.y, this.width, this.height, 5);
-    fill(255, 255, 255);
+    fill(0, 0, 0);
     textSize(19);
     textAlign(LEFT, TOP);
     text(this.label, this.x+10, this.y+this.height/4);
 };
-
 Button.prototype.isMouseInside = function() {
     return mouseX > this.x &&
            mouseX < (this.x + this.width) &&
            mouseY > this.y &&
            mouseY < (this.y + this.height);
 };
-
 Button.prototype.handleMouseClick = function() {
     if (this.isMouseInside()) {
         this.onClick();
     }
 };
+
 var startBtn = new Button({
-    x:150, 
-    y: 305, 
-    width:91, 
-    label:"START!",
-    onClick: function(){
-        currentScene=1;
-        //startTime = millis(); // timer starts when the start button is clicked
+    x: 307,
+    y: 143,
+    width: 86,
+    label: "START!",
+    onClick : function(){
+        currentScene = 1;
     }
 });
+var OptionA = new Button({x: 6, y: 206, width: 386, height: 34, option: "A"});
+var OptionB = new Button({x: 6, y: 247, width: 386, height: 34, option: "B"});
+var OptionC = new Button({x: 6, y: 288, width: 386, height: 34, option: "C"});
+var OptionD = new Button({x:6, y: 329, width: 386, height: 34, option: "D"});
 
-var splashScreen = function(){ // start screen
-    currentScene = 0;
-    background(25, 21, 105);
+var splashScreen = function(){
+    background(188, 245, 245);
     drawMolly(70, 70, 70);
     drawAnjolaBitmoji(103, -49, 71);
-    fill(255, 255, 255);
-    textSize(19);
-    text("Molly & Anjola's Who wants to be a Millionare", 6, 20);
-    text("When you're ready click the button below!", 18, 247);
-    text("It's Trivia time!", 125, 207);
-    startBtn.draw(); // draws the start button
+    fill(0, 0, 0);
+    textSize(20);
+    text("Molly and Anjola's Trivia Game!", 52, 20);
+    text("Click the button to start!", 52, 352);
+    startBtn.draw();
 };
 
-var OptionA = new Button({x: 32, y: 222, width: 162, height: 34, option:"A"});
-var OptionB = new Button({x: 234, y: 222, width: 162, height: 34, option:"B"});
-var OptionC = new Button({x: 32, y: 291, width: 162, height: 34, option:"C"});
-var OptionD = new Button({x:234, y: 291, width: 162, height: 34, option:"D"});
-
 var displayQuestion = function(){
+    background(188, 245, 245);
     fill(255, 255, 255);
-    rect(74, 121, 272, 71, 7);
+    rect(6, 121, 388, 71, 7); 
+    drawAnjolaBitmoji(45, -28, 36);
+    drawMolly(36, 36, 36);
     fill(0, 0, 0);
     textSize(12);
     textAlign(CENTER, CENTER);
@@ -404,22 +386,40 @@ var displayQuestion = function(){
     OptionD.draw();
 };
 
-var checkAnswer = function(){};
+mouseClicked = function(){
+    OptionA.handleMouseClick();
+    OptionB.handleMouseClick();
+    OptionC.handleMouseClick();
+    OptionD.handleMouseClick();
+    startBtn.handleMouseClick();
+};
 
-draw= function() {
-    if (currentScene === 0){
-       splashScreen();
-    }else{
-        background(188, 245, 245); // move to draw function
+var gamePlaying = function(){
+    if(currentQuestion < questions.length){
         displayQuestion();
         text("Score: " + playerScore, 307, 33);
-        mouseClicked = function(){
-            OptionA.handleMouseClick();
-            OptionB.handleMouseClick();
-            OptionC.handleMouseClick();
-            OptionD.handleMouseClick();
-        };
+    }else if (currentQuestion === questions.length){
+        background(0, 255, 64);
+        text("YOU WIN!", 140, 200);
     }
 };
+
+var endGame = function(){
+    background(255, 0, 0);
+    textSize(20);
+    text("GAME OVER!", 138, 200);
+};
+
+draw = function() {
+    if(currentScene === 0){
+        splashScreen();
+    } else 
+        //background(0, 0, 0);
+        if (currentScene === 1){
+            gamePlaying();
+        if (currentQuestion === 2000){
+            endGame(); 
+        }
+    }
     
 };
